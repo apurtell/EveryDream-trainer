@@ -1,3 +1,9 @@
+**EveryDream 2.0 is now live** https://github.com/victorchall/EveryDream2trainer
+
+The updated 2.0 repo is a from-scratch rewrite to allow easier future development and will have more features long term and lower VRAM use.
+
+Below is the docs for EveryDream 1.0 (this repo).
+
 # Every Dream trainer for Stable Diffusion
 
 This is a bit of a divergence from other fine tuning methods out there for Stable Diffusion.  This is a general purpose fine-tuning codebase meant to bridge the gap from small scales (ex Texual Inversion, Dreambooth) and large scale (i.e. full fine tuning on large clusters of GPUs).  It is designed to run on a local 24GB Nvidia GPU, currently the 3090, 3090 Ti, 4090, or other various Quadrios and datacenter cards (A5500, A100, etc), or on Runpod with any of those GPUs. 
