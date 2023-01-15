@@ -60,6 +60,23 @@ ASPECTS = [[512,512],      # 262144 1:1
     [1024,256],[256,1024], # 245760 4:1
     ]
 
+ASPECTS_448 = [[448,448],      # 200704 1:1
+    [512,384],[384,512],   # 196608 1.333:1
+    [640,320],[320,640],   # 204800 2:1
+    [768,256],[256,768],   # 196608 3:1
+]
+
+ASPECTS_384 = [[384,384],      # 147456 1:1
+    [448,320],[320,448],   # 143360 1.4:1
+    [512,256],[256,512],   # 131072 2:1
+    [704,192],[192,704],   # 135168 3.667:1
+]
+
+ASPECTS_256 = [[256,256],  # 65536 1:1
+    [384,192],[192,384],   # 73728 2:1
+    [512,128],[128,512],   # 65536 4:1
+]
+
 def get_aspect_buckets(resolution):
     if resolution < 512:
         raise ValueError("Resolution must be at least 512")
@@ -73,4 +90,4 @@ def get_aspect_buckets(resolution):
         raise e
 
 def __get_all_aspects():
-    return [ASPECTS, ASPECTS2, ASPECTS3, ASPECTS4, ASPECTS5]
+    return [ASPECTS, ASPECTS2, ASPECTS3, ASPECTS4, ASPECTS5, ASPECTS_448, ASPECTS_384, ASPECTS_256]
