@@ -79,7 +79,7 @@ data:
     validation:
       target: ldm.data.ed_validate.EDValidateBatch
       params:
-        repeats: 0.2  # suggest low fractions for 10k+ images
+        repeats: 0.01  # suggest low fractions for 10k+ images
     test:
       target: ldm.data.ed_validate.EDValidateBatch
       params:
