@@ -78,8 +78,8 @@ ASPECTS_256 = [[256,256],  # 65536 1:1
 ]
 
 def get_aspect_buckets(resolution):
-    if resolution < 512:
-        raise ValueError("Resolution must be at least 512")
+    if resolution < 256:
+        raise ValueError("Resolution must be at least 256")
     try: 
         rounded_resolution = int(resolution / 64) * 64
         all_image_sizes = __get_all_aspects()
