@@ -69,7 +69,14 @@ class DataLoaderMultiAspect():
 
             #if debug_level > 1: print(f" * DLMA file: {pathname} with caption: {caption}")
             
-            image = Image.open(pathname)
+            try: 
+                image = Image.open(pathname).convert('RGB')
+            except Exception as e:
+                print(f"File corrupt. Cannot continue. Error opening image: {self.pathname}")
+                print(e)
+                print(f"You should remove this image or try to correct it by resaving it.")
+                exit()
+
             width, height = image.size
             image_aspect = width / height
 
