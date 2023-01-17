@@ -72,9 +72,9 @@ class DataLoaderMultiAspect():
             try: 
                 image = Image.open(pathname).convert('RGB')
             except Exception as e:
-                print(f"File corrupt. Cannot continue. Error opening image: {self.pathname}")
+                print(f"File corrupt. Cannot continue. Error opening image: {pathname}")
                 print(e)
-                print(f"You should remove this image or try to correct it by resaving it.")
+                print(f"You should remove this image or try to correct it by resaving it in an image editor.")
                 exit()
 
             width, height = image.size
