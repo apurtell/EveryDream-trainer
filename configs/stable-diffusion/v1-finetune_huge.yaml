@@ -1,5 +1,5 @@
 model:
-  base_learning_rate: 1.0e-6
+  base_learning_rate: 5.0e-7
   target: ldm.models.diffusion.ddpm.LatentDiffusion
   params:
     linear_start: 0.00085
@@ -65,7 +65,7 @@ model:
 data:
   target: main.DataModuleFromConfig
   params:
-    batch_size: 6  # prefer highest possible without getting CUDA Out of Memory error, A100 40GB =~20 80GB= ~48
+    batch_size: 10  # prefer highest possible without getting CUDA Out of Memory error, A100 40GB =~20 80GB= ~48
     num_workers: 8
     wrap: falsegit
     train:
@@ -90,7 +90,7 @@ lightning:
     params:
       every_n_epochs: 1  # produce a ckpt every epoch, leave 1!
       #every_n_train_steps: 1400 # can only use epoch or train step checkpoints
-      save_top_k: 6   # save the best N ckpts according to loss, can reduce to save disk space but suggest at LEAST 2, more if you have max_epochs below higher!
+      save_top_k: 5   # save the best N ckpts according to loss, can reduce to save disk space but suggest at LEAST 2, more if you have max_epochs below higher!
       save_last: True
       filename: "{epoch:02d}-{step:05d}"
   callbacks:
@@ -103,7 +103,7 @@ lightning:
 
   trainer:
     benchmark: True
-    max_epochs: 7   # better to run several epochs and test your checkpoints!  Try 4-5, you get a checkpoint every epoch to test! 
-    max_steps: 99000   # better to end on epochs not steps, especially with >500 images to ensure even distribution, but you can set this if you really want...
+    max_epochs: 10   # better to run several epochs and test your checkpoints!  Try 4-5, you get a checkpoint every epoch to test! 
+    #max_steps: 100000   # better to end on epochs not steps, especially with >500 images to ensure even distribution, but you can set this if you really want...
     check_val_every_n_epoch: 1
     gpus: 0,
